@@ -22,7 +22,7 @@ class UserForm
                         DateTimePicker::make('start_date')
                             ->label('Start Date')
                             ->afterStateUpdatedJs(<<<'JS'
-                                if ($state && $get('end_date') === null) {
+                                if ($state && ($get('end_date') === null || $get('end_date') === '')) {
                                     $set('end_date', $state);
                                 }
                             JS)
